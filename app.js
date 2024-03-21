@@ -8,7 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  pushButton.addEventListener('click', function() {
+  window.addEventListener('load', function () {
+    console.log('Documento cargado!...');
+    if (isPushEnabled) {
+      push_unsubscribe();
+    } else {
+      push_subscribe();
+    }
+  })
+
+  pushButton.addEventListener('click', function () {
     if (isPushEnabled) {
       push_unsubscribe();
     } else {
@@ -207,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contentEncoding = (PushManager.supportedContentEncodings || ['aesgcm'])[0];
 
     // return fetch('http://localhost/web-push/web-push-php-example/src/push_subscription.php', {
-      return fetch(`https://${server}/backend/push/push_subscription.php`, {
+    return fetch(`https://${server}/backend/push/push_subscription.php`, {
       method,
       body: JSON.stringify({
         endpoint: subscription.endpoint,
