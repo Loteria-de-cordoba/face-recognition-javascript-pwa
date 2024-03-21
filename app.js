@@ -10,11 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('load', function () {
     console.log('Documento cargado!...');
-    if (isPushEnabled) {
-      push_unsubscribe();
-    } else {
       push_subscribe();
-    }
   })
 
   pushButton.addEventListener('click', function () {
