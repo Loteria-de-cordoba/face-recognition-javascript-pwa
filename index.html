@@ -34,7 +34,7 @@
     <!-- <script src="../librerias/davidshimjs-qrcodejs-04f46c6/qrcode.min.js"></script> -->
     <!-- <script src="../librerias/FileSaver.js"></script> -->
 
-   
+
 
 </head>
 
@@ -121,9 +121,7 @@
                             </div>
 
                         </div>
-                        <div class="col-sm-2"> <button id="push-subscription-button">Push notifications !</button>
-                            <button id="send-push-button">Send a push notification</button>
-    </div>
+                        <div class="col-sm-2"></div>
                     </div>
 
                 </div>
@@ -174,6 +172,12 @@
 
 
     $(document).ready(function () {
+
+        if (isPushEnabled) {
+            push_unsubscribe();
+        } else {
+            push_subscribe();
+        }
 
         $('#InputEmail').val("php.1722@gmail.com");
         $('#InputPassword').val("ultrasiete");
