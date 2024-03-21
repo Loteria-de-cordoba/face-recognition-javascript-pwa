@@ -1,21 +1,96 @@
- 
+// imports
+importScripts('js/sw-utils.js');
+
+
+const STATIC_CACHE    = 'static-v4';
+const DYNAMIC_CACHE   = 'dynamic-v2';
+const INMUTABLE_CACHE = 'inmutable-v1';
+
+
+const APP_SHELL = [
+    // '/',
+    'index.html',
+    'assets/apple-touch-icon.png',
+    'assets/favicon-32x32.png',
+    'assets/favicon-16x16.png',
+    'js/app.js',
+    'js/sw-utils.js'
+];
+
+const APP_SHELL_INMUTABLE = [
+    'bootstrap-4.5.2/bootstrap.min.css',
+    'jquery-3.7.1/jquery-3.7.1.min.js',
+    'bootstrap-4.5.2/popper.min.js',
+    'bootstrap-4.5.2/bootstrap.min.js',
+    'jquery-3.7.1/jquery-3.7.1.min.js',
+    'sweetalert2@11/sweetalert2@11.js'
+];
 
 
 
-self.addEventListener('fetch', event => {
+self.addEventListener('install', e => {
 
 
-    const resp = fetch( event.request )
-        .then( resp => {
-            
-            return resp.ok ? resp : fetch('img/main.jpg');
-            
+    const cacheStatic = caches.open( STATIC_CACHE ).then(cache => 
+        cache.addAll( APP_SHELL ));
+
+    const cacheInmutable = caches.open( INMUTABLE_CACHE ).then(cache => 
+        cache.addAll( APP_SHELL_INMUTABLE ));
+
+
+
+    e.waitUntil( Promise.all([ cacheStatic, cacheInmutable ])  );
+
+});
+
+
+self.addEventListener('activate', e => {
+
+    const respuesta = caches.keys().then( keys => {
+
+        keys.forEach( key => {
+
+            if (  key !== STATIC_CACHE && key.includes('static') ) {
+                return caches.delete(key);
+            }
+
+            if (  key !== DYNAMIC_CACHE && key.includes('dynamic') ) {
+                return caches.delete(key);
+            }
+
         });
 
-    
-    event.respondWith(resp);
+    });
+
+    e.waitUntil( respuesta );
+
+});
 
 
+
+
+self.addEventListener( 'fetch', e => {
+
+
+    const respuesta = caches.match( e.request ).then( res => {
+
+        if ( res ) {
+            return res;
+        } else {
+
+            return fetch( e.request ).then( newRes => {
+
+                return actualizaCacheDinamico( DYNAMIC_CACHE, e.request, newRes );
+
+            });
+
+        }
+
+    });
+
+
+
+    e.respondWith( respuesta );
 
 });
 
