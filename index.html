@@ -209,12 +209,11 @@
 
         variables = {
             email: $('#InputEmail').val(),
-            password: $('#InputPassword').val(),
-            server: server
+            password: $('#InputPassword').val()
         };
 
         if (opcion == 'A') {
-            destino = `backoffice.html`;
+            destino = `backoffice.html?server=${server}`;
             // } else if (opcion == 'W') {
             //     destino = `../views/selector.html`;
             // } else if (opcion == 'B') {
