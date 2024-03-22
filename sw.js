@@ -17,8 +17,7 @@ const APP_SHELL = [
     'assets/logo-loteria.jpg',
     'js/app.js',
     'js/sw-utils.js',
-    'backoffice.js',
-    'app.js'
+    'backoffice.js'
 ];
 
 const APP_SHELL_INMUTABLE = [
