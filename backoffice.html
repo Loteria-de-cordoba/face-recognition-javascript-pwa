@@ -288,29 +288,6 @@
 
     <script>
 
-        // // Verificar si el navegador soporta la API navigator.mediaDevices.getUserMedia
-        // if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
-        //     // Enumerar los dispositivos multimedia disponibles
-        //     navigator.mediaDevices.enumerateDevices()
-        //         .then(function (devices) {
-        //             // Filtrar los dispositivos para obtener solo las cámaras
-        //             const cameras = devices.filter(device => device.kind === 'videoinput');
-
-        //             // Mostrar la lista de cámaras
-        //             const cameraList = document.getElementById('cameraList');
-        //             cameras.forEach(function (camera, index) {
-        //                 const listItem = document.createElement('li');
-        //                 listItem.textContent = `Cámara ${index + 1}: ${camera.label || 'Desconocida'}`;
-        //                 cameraList.appendChild(listItem);
-        //             });
-        //         })
-        //         .catch(function (err) {
-        //             console.error('Error al enumerar dispositivos:', err);
-        //         });
-        // } else {
-        //     console.error('La API navigator.mediaDevices.getUserMedia no está disponible en este navegador.');
-        // }
-
         // Función para obtener el parámetro 'id' de la URL
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
