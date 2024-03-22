@@ -72,8 +72,6 @@ function getPersonas(page) {
                 $(`#table-personas tbody`).empty();
                 $.each(data.personas, function (key, value) {
 
-                    console.log(value.id_persona);
-
                     $(`#table-personas`).append(`<tr>   
                             <td>${value.id_persona}</td>
                             <td><img src="../../images/${value.unique_id}.png" width="60px" height="50px"></td>
