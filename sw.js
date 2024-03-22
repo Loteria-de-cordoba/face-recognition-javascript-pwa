@@ -10,12 +10,15 @@ const INMUTABLE_CACHE = 'inmutable-v1';
 const APP_SHELL = [
     // '/',
     'index.html',
+    'backoffice.html',
     'assets/apple-touch-icon.png',
     'assets/favicon-32x32.png',
     'assets/favicon-16x16.png',
     'assets/logo-loteria.jpg',
     'js/app.js',
-    'js/sw-utils.js'
+    'js/sw-utils.js',
+    'backoffice.js',
+    'app.js'
 ];
 
 const APP_SHELL_INMUTABLE = [
