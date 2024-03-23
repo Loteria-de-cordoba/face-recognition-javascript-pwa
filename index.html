@@ -237,15 +237,13 @@
             data: JSON.stringify(variables),
             headers: headers,
             dataType: 'json',
-            xhrFields: {
-                // Esto permite que la solicitud ignore los errores de certificado SSL inválidos
-                withCredentials: true
-            },
-            // Esto configura la opción rejectUnauthorized para manejar certificados SSL inválidos
-            // Solo necesario en entornos Node.js
             beforeSend: function (xhr) {
-                xhr.setRequestHeader('rejectUnauthorized', 'false');
+                xhr.withCredentials = true;
             }
+            // xhrFields: {
+            //     // Esto permite que la solicitud ignore los errores de certificado SSL inválidos
+            //     withCredentials: true
+            // }
         }).done(function (data) {
             // alert("Data Loaded: " + data);
             console.log(data);
