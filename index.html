@@ -237,8 +237,8 @@
             data: JSON.stringify(variables),
             headers: headers,
             dataType: 'json',
-            beforeSend: function (xhr) {
-                xhr.withCredentials = true;
+            xhrFields: {
+                withCredentials: true
             }
             // xhrFields: {
             //     // Esto permite que la solicitud ignore los errores de certificado SSL inválidos
