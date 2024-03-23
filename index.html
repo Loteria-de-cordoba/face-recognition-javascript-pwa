@@ -237,14 +237,11 @@
             data: JSON.stringify(variables),
             headers: headers,
             dataType: 'json',
-            xhrFields: {
-                withCredentials: true
+            headers: {
+                "Content-Type": "multipart/form-data"
             },
-            // Esto configura la opción rejectUnauthorized para manejar certificados SSL inválidos
-            // Solo necesario en entornos Node.js
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('rejectUnauthorized', 'false');
-            }
+            crossDomain: true,
+            withCredentials: true
         }).done(function (data) {
             // alert("Data Loaded: " + data);
             console.log(data);
