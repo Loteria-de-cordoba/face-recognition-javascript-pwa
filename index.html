@@ -236,15 +236,15 @@
             url: `https://${server}/backend/api/usuarios/index.php`,
             data: JSON.stringify(variables),
             headers: headers,
-            dataType: 'json',
-            xhrFields: {
-                withCredentials: false
-            },
-            // Esto configura la opción rejectUnauthorized para manejar certificados SSL inválidos
-            // Solo necesario en entornos Node.js
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('rejectUnauthorized', 'false');
-            }
+            dataType: 'json'
+            // xhrFields: {
+            //     withCredentials: false
+            // },
+            // // Esto configura la opción rejectUnauthorized para manejar certificados SSL inválidos
+            // // Solo necesario en entornos Node.js
+            // beforeSend: function (xhr) {
+            //     xhr.setRequestHeader('rejectUnauthorized', 'false');
+            // }
         }).done(function (data) {
             // alert("Data Loaded: " + data);
             console.log(data);
