@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
         publicKey: key ? btoa(String.fromCharCode.apply(null, new Uint8Array(key))) : null,
         authToken: token ? btoa(String.fromCharCode.apply(null, new Uint8Array(token))) : null,
         contentEncoding,
-        token
+        token: token
       }),
     }).then(() => subscription);
   }
