@@ -431,7 +431,7 @@ function agregarUsuario() {
 // });
 
 
-$("#tab2-tab").tab("show", function () { 
+$("#tab2-tab").on("show.bs.tab", function () { 
     console.log(`click`);
     // apagarCamara();
     getPersonas(1);
