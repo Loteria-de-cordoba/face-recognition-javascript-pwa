@@ -685,7 +685,10 @@ function modificarClave() {
         url: url_usuarios,
         data: JSON.stringify(variables),
         headers: headers,
-        dataType: 'json'
+        dataType: 'json',
+        xhrFields: {
+            withCredentials: false
+        }
     }).done(function (data) {
         // alert("Data Loaded: " + data);
         console.log(data);

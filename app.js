@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   navigator.serviceWorker.register('sw.js').then(
-  // navigator.serviceWorker.register('serviceWorker.js').then(
+    // navigator.serviceWorker.register('serviceWorker.js').then(
     () => {
       console.log('[SW] Service worker has been registered');
       push_updateSubscription();
@@ -221,12 +221,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // return fetch('http://localhost/web-push/web-push-php-example/src/push_subscription.php', {
     return fetch(`https://${server}/backend/push/push_subscription.php`, {
       method,
+      xhrFields: {
+        withCredentials: false
+      },
       body: JSON.stringify({
         endpoint: subscription.endpoint,
         publicKey: key ? btoa(String.fromCharCode.apply(null, new Uint8Array(key))) : null,
         authToken: token ? btoa(String.fromCharCode.apply(null, new Uint8Array(token))) : null,
         contentEncoding,
-        token: localStorage.getItem('CI-token')
+        token: localStorage.getItem('CI-token'),
       }),
     }).then(() => subscription);
   }
@@ -256,6 +259,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // fetch('http://localhost/web-push/web-push-php-example/src/send_push_notification.php', {
         fetch(`https://${server}/backend/push/send_push_notification.php`, {
           method: 'POST',
+          xhrFields: {
+            withCredentials: false
+          },
           body: JSON.stringify(Object.assign(jsonSubscription, { contentEncoding })),
         });
       })
