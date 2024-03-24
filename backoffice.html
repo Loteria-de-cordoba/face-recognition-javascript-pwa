@@ -313,6 +313,8 @@
     var url_usuarios = `https://${server}/backend/api/usuarios/index.php`;
     var url_login = `https://${server}`;
     $(document).ready(function () {
+        getPersonas(1);
+
         console.log("ready!");
 
         if (isMobile()) {
