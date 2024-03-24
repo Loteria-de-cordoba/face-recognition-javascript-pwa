@@ -433,9 +433,7 @@ function agregarUsuario() {
 $('.nav-link').click(function(){
     var tabId = $(this).attr('href'); // Obtener el ID de la pestaña
 if (tabId="tab2-tab") {
-    e.target // newly activated tab
-    e.relatedTarget // previous active tab 
-    console.log(`click`);
+    console.log('click');
     // apagarCamara();
     getPersonas(1);
 });
