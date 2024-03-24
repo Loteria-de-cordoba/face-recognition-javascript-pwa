@@ -1,5 +1,3 @@
-// imports
-importScripts('js/sw-utils.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   const applicationServerKey =
