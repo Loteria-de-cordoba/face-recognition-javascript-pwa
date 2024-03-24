@@ -437,7 +437,7 @@ $('.nav-link').click(function () {
         // apagarCamara();
         getPersonas(1);
     }
-}
+});
 
 $("#tab3-tab").on("click", function () {
     // apagarCamara();
