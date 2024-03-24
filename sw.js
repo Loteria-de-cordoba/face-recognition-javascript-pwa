@@ -15,9 +15,8 @@ const APP_SHELL = [
     'assets/favicon-32x32.png',
     'assets/favicon-16x16.png',
     'assets/logo-loteria.jpg',
-    'js/app.js',
     'app.js',
-    'js/sw-utils.js',
+    'js/app.js',
     'backoffice.js'
 ];
 
