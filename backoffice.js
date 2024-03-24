@@ -430,8 +430,9 @@ function agregarUsuario() {
 //     // encenderCamara();
 // });
 
-
-$('a[data-toggle="tab2-tab"]').on("show.bs.tab", function (e) {
+$('.nav-link').click(function(){
+    var tabId = $(this).attr('href'); // Obtener el ID de la pestaña
+if (tabId="tab2-tab") {
     e.target // newly activated tab
     e.relatedTarget // previous active tab 
     console.log(`click`);
