@@ -221,9 +221,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // return fetch('http://localhost/web-push/web-push-php-example/src/push_subscription.php', {
     return fetch(`https://${server}/backend/push/push_subscription.php`, {
       method,
-      xhrFields: {
-        withCredentials: false
-      },
+      // xhrFields: {
+      //   withCredentials: false
+      // },
       body: JSON.stringify({
         endpoint: subscription.endpoint,
         publicKey: key ? btoa(String.fromCharCode.apply(null, new Uint8Array(key))) : null,
@@ -259,9 +259,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // fetch('http://localhost/web-push/web-push-php-example/src/send_push_notification.php', {
         fetch(`https://${server}/backend/push/send_push_notification.php`, {
           method: 'POST',
-          xhrFields: {
-            withCredentials: false
-          },
+          // xhrFields: {
+          //   withCredentials: false
+          // },
           body: JSON.stringify(Object.assign(jsonSubscription, { contentEncoding })),
         });
       })
