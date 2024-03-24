@@ -430,12 +430,11 @@ function agregarUsuario() {
 //     // encenderCamara();
 // });
 
-
-$("#tab2-tab").on("click", function () { 
-    console.log(`click`);
-    // apagarCamara();
+$('#tab2-tab').click(function(){
+    // Aquí puedes colocar el código que deseas que se ejecute cuando se haga clic en el enlace con el ID tab2-tab
     getPersonas(1);
 });
+
 
 $("#tab3-tab").on("click", function () {
     // apagarCamara();
