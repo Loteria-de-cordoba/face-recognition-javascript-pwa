@@ -432,6 +432,7 @@ function agregarUsuario() {
 
 $('#tab2-tab').click(function(){
     // Aquí puedes colocar el código que deseas que se ejecute cuando se haga clic en el enlace con el ID tab2-tab
+    console.log('Se hizo clic en el enlace con ID tab2-tab.');
     getPersonas(1);
 });
 
