@@ -23,7 +23,8 @@ const APP_SHELL = [
 const APP_SHELL_INMUTABLE = [
     'jquery-3.7.1/jquery-3.7.1.min.js',
     'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css',
-    'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js',
+    'https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js',
+    'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js',    
     'sweetalert2@11/sweetalert2@11.js',
     'librerias/twbs-pagination-master/jquery.twbsPagination.min.js',
     // 'librerias/fontawesome-free-6.4.2-web/js/all.min.js',
