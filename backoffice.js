@@ -426,12 +426,12 @@ function agregarUsuario() {
 
 }
 
-$("#tab1-tab").on("click", function () {
-    // encenderCamara();
-});
+// $("#tab1-tab").on("click", function () {
+//     // encenderCamara();
+// });
 
 
-$("#tab2-tab").on("click", function () {
+$("#tab2-tab").on("click", function () { console.log(`click`);
     // apagarCamara();
     getPersonas(1);
 });
