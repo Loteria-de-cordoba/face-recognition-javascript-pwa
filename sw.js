@@ -16,7 +16,7 @@ const APP_SHELL = [
     'assets/favicon-16x16.png',
     'assets/logo-loteria.jpg',
     'app.js',
-    'js/app.js',
+    // 'js/app.js',
     'backoffice.js'
 ];
 
@@ -57,15 +57,35 @@ self.addEventListener('activate', e => {
 });
 
 
-// self.addEventListener( 'fetch', e => {
-//     const respuesta = caches.match( e.request ).then( res => {
-//         if ( res ) {
-//             return res;
-//         } else {
-//             return fetch( e.request ).then( newRes => {
-//                 return actualizaCacheDinamico( DYNAMIC_CACHE, e.request, newRes );
-//             });
-//         }
-//     });
-//     e.respondWith( respuesta );
-// });
+self.addEventListener( 'fetch', e => {
+    const respuesta = caches.match( e.request ).then( res => {
+        if ( res ) {
+            return res;
+        } else {
+            return fetch( e.request ).then( newRes => {
+                return actualizaCacheDinamico( DYNAMIC_CACHE, e.request, newRes );
+            });
+        }
+    });
+    e.respondWith( respuesta );
+});
+
+self.addEventListener('push', function (event) {
+    if (!(self.Notification && self.Notification.permission === 'granted')) {
+        return;
+    }
+
+    const sendNotification = body => {
+        // you could refresh a notification badge here with postMessage API
+        const title = "Web Push example";
+
+        return self.registration.showNotification(title, {
+            body,
+        });
+    };
+
+    if (event.data) {
+        const payload = event.data.json();
+        event.waitUntil(sendNotification(payload.message));
+    }
+});
