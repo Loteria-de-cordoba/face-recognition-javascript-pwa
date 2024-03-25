@@ -431,33 +431,34 @@ function agregarUsuario() {
 // });
 
 
+function iniciarEventos() {
 
+    $("#tab2-tab").on("click", function () {
+        // apagarCamara();
+        getPersonas(1);
+    });
 
-$("#tab2-tab").on("click", function () {
-    // apagarCamara();
-    getPersonas(1);
-});
+    $("#tab3-tab").on("click", function () {
+        // apagarCamara();
+        getRegistro(1);
+    });
 
-$("#tab3-tab").on("click", function () {
-    // apagarCamara();
-    getRegistro(1);
-});
+    $("#tab4-tab").on("click", function () {
+        // apagarCamara();
+        $('#email_user').val('').removeClass("is-valid").removeClass("is-invalid");;
+        $('#apellido_user').val('');
+        $('#nombre_user').val('');
+        $("#documento_user").val('');
+        getUsuarios(1);
+    });
 
-$("#tab4-tab").on("click", function () {
-    // apagarCamara();
-    $('#email_user').val('').removeClass("is-valid").removeClass("is-invalid");;
-    $('#apellido_user').val('');
-    $('#nombre_user').val('');
-    $("#documento_user").val('');
-    getUsuarios(1);
-});
-
-$("#tab5-tab").on("click", function () {
-    // apagarCamara();
-    $("#InputPassword1").val('').removeClass("is-valid").removeClass("is-invalid");
-    $("#InputPassword2").val('').removeClass("is-valid").removeClass("is-invalid");
-});
-
+    $("#tab5-tab").on("click", function () {
+        // apagarCamara();
+        $("#InputPassword1").val('').removeClass("is-valid").removeClass("is-invalid");
+        $("#InputPassword2").val('').removeClass("is-valid").removeClass("is-invalid");
+    });
+    
+}
 
 function validarEmail(obj) {
     if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(obj.val())) {
