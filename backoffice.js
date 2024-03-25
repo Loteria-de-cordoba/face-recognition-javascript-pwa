@@ -430,6 +430,9 @@ function agregarUsuario() {
 //     // encenderCamara();
 // });
 
+
+
+
 $("#tab2-tab").on("click", function () {
     // apagarCamara();
     getPersonas(1);
