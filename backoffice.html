@@ -24,8 +24,8 @@
 
     <!-- <script type="text/javascript" src="js/app.js"></script> -->
 
-    <script type="text/javascript" src="app.js"></script>
-    <script src="backoffice.js"></script>
+    <!-- <script type="text/javascript" src="app.js"></script>
+    <script src="backoffice.js"></script> -->
 
 </head>
 
@@ -301,11 +301,22 @@
 
 <script>
 
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js') // Asegúrate de que este sea el archivo del Service Worker registrado en tu primera página
+            .then(registration => {
+                // Registro exitoso
+                console.log('Service Worker registrado exitosamente');
+            })
+            .catch(error => {
+                // Error en el registro
+                console.error('Error al registrar el Service Worker:', error);
+            });
+    }
 
     // Cargar recursos desde la cache cuando la página se carga
     window.addEventListener('load', () => {
         // Carga los recursos estáticos e inmutables desde la cache
-        caches.open('static-v4').then(cache => {
+        caches.open('static-v1').then(cache => {
             cache.addAll([
                 '/index.html',
                 '/backoffice.html',
