@@ -216,14 +216,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function device() {
     let device = 'none';
     try {
-        if (/Android|webOS|iPhone|iPad|iPod|pocket|psp|kindle|avantgo|blazer|midori|Tablet|Palm|maemo|plucker|phone|BlackBerry|symbian|IEMobile|mobile|ZuneWP7|Windows Phone|Opera Mini/i.test(navigator.userAgent)) {
-          device = 'movile';  
-          return true;
-        };
-        device = 'pc';
-        return false;
+      if (/Android|webOS|iPhone|iPad|iPod|pocket|psp|kindle|avantgo|blazer|midori|Tablet|Palm|maemo|plucker|phone|BlackBerry|symbian|IEMobile|mobile|ZuneWP7|Windows Phone|Opera Mini/i.test(navigator.userAgent)) {
+        device = 'movile';
+        return device;
+      };
+      device = 'pc';
+      return device;
     } catch (e) { console.log("Error in isMobile"); return false; }
-}
+  }
 
   function push_sendSubscriptionToServer(subscription, method) {
     const key = subscription.getKey('p256dh');
