@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const key = subscription.getKey('p256dh');
     const token = subscription.getKey('auth');
     const contentEncoding = (PushManager.supportedContentEncodings || ['aesgcm'])[0];
-    console.log('key:',key);
+    console.log('key:',new Uint8Array(key));
     // return fetch('http://localhost/web-push/web-push-php-example/src/push_subscription.php', {
     return fetch(`https://${server}/backend/push/api/push_subscription.php`, {
       method,
