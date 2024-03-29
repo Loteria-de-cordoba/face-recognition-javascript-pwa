@@ -128,6 +128,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function detectBrowser() { 
+    let browser;
+    if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ){
+      browser = 'Opera';
+    }
+    else if(navigator.userAgent.indexOf("Chrome") != -1 ){
+      browser = 'Chrome';
+    }
+    else if(navigator.userAgent.indexOf("Safari") != -1){
+      browser = 'Safari';
+    }
+    else if(navigator.userAgent.indexOf("Firefox") != -1 ){
+      browser = 'Firefox';
+    }
+    else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )){
+      browser = 'IE'; 
+    }  
+    else{
+      browser = 'unknown';
+    }
+    return browser;
+}
+
   function push_subscribe() {
     changePushButtonState('computing');
 
@@ -227,6 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         authToken: token ? btoa(String.fromCharCode.apply(null, new Uint8Array(token))) : null,
         contentEncoding,
         token: localStorage.getItem('CI-token'),
+        browser: detectBrowser(),
       }),
     }).then(() => subscription);
   }
