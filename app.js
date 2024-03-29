@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contentEncoding = (PushManager.supportedContentEncodings || ['aesgcm'])[0];
     // console.log(key);
     // return fetch('http://localhost/web-push/web-push-php-example/src/push_subscription.php', {
-    return fetch(`https://${server}/backend/push/api/push_subscription.php`, {
+    return fetch(`https://${server}/backend/api/push/push_subscription.php`, {
       method,
       body: JSON.stringify({
         endpoint: subscription.endpoint,
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const contentEncoding = (PushManager.supportedContentEncodings || ['aesgcm'])[0];
         const jsonSubscription = subscription.toJSON();
         // fetch('http://localhost/web-push/web-push-php-example/src/send_push_notification.php', {
-        fetch(`https://${server}/backend/push/api/send_push_notification.php`, {
+        fetch(`https://${server}/backend/api/push/send_push_notification.php`, {
           method: 'POST',
           body: JSON.stringify(Object.assign(jsonSubscription, { contentEncoding })),
         });
