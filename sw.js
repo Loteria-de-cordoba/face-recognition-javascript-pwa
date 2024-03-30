@@ -78,7 +78,7 @@ self.addEventListener('push', function (event) {
     const sendNotification = body => {
         // you could refresh a notification badge here with postMessage API
         // const title = "Web Push example";
-        const title = "Face recognition";
+        const title = "Face recognition server";
 
         return self.registration.showNotification(title, {
             body,
