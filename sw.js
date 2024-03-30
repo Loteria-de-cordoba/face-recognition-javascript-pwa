@@ -82,7 +82,7 @@ self.addEventListener('push', function (event) {
         const title = "Face recognition server";
         const icon = "assets/pwa.png";
 
-        return self.registration.showNotification(title, {
+        return self.registration.showNotification(title, { title,
             body, icon
         });
     };
