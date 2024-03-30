@@ -15,6 +15,7 @@ const APP_SHELL = [
     'assets/favicon-32x32.png',
     'assets/favicon-16x16.png',
     'assets/logo-loteria.jpg',
+    'assets/pwa.png',
     'app.js',
     // 'js/app.js',
     'backoffice.js'
@@ -79,9 +80,10 @@ self.addEventListener('push', function (event) {
         // you could refresh a notification badge here with postMessage API
         // const title = "Web Push example";
         const title = "Face recognition server";
+        const icon = "assets/pwa.png";
 
         return self.registration.showNotification(title, {
-            body,
+            body, icon
         });
     };
 
