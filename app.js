@@ -71,11 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
         pushButton.disabled = false;
         pushButton.textContent = 'Disable Push notifications';
         isPushEnabled = true;
+        $('#push-subscription-button').removeClass('btn-success').addClass('btn-primary');        
         break;
       case 'disabled':
         pushButton.disabled = false;
         pushButton.textContent = 'Enable Push notifications';
         isPushEnabled = false;
+        $('#push-subscription-button').removeClass('btn-primary').addClass('btn-success');
         break;
       case 'computing':
         pushButton.disabled = true;
@@ -84,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'incompatible':
         pushButton.disabled = true;
         pushButton.textContent = 'Push notifications are not compatible with this browser';
+        $('#push-subscription-button').removeClass('btn-primary').addClass('btn-warning');
         break;
       default:
         console.error('Unhandled push button state', state);
