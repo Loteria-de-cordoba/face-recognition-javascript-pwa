@@ -51,6 +51,9 @@ self.addEventListener('activate', e => {
             if (  key !== DYNAMIC_CACHE && key.includes('dynamic_v1') ) {
                 return caches.delete(key);
             }
+            if (  key !== INMUTABLE_CACHE && key.includes('inmutable') ) {
+                return caches.delete(key);
+            }
         });
     });
     e.waitUntil( respuesta );
