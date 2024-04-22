@@ -45,10 +45,10 @@ self.addEventListener('install', e => {
 self.addEventListener('activate', e => {
     const respuesta = caches.keys().then( keys => {
         keys.forEach( key => {
-            if (  key !== STATIC_CACHE && key.includes('static') ) {
+            if (  key !== STATIC_CACHE && key.includes('static_v1') ) {
                 return caches.delete(key);
             }
-            if (  key !== DYNAMIC_CACHE && key.includes('dynamic') ) {
+            if (  key !== DYNAMIC_CACHE && key.includes('dynamic_v1') ) {
                 return caches.delete(key);
             }
         });
