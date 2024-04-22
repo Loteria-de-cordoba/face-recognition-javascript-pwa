@@ -1,10 +1,12 @@
 if (navigator.serviceWorker) {
-    navigator.serviceWorker.getRegistrations().then(registrations => {
-        for (const registration of registrations) {
-            registration.unregister();
+
+    navigator.serviceWorker.getRegistrations().then(function (registrations) {
+        var registrationslength = registrations.length;
+        for (var i = 0; i < registrationslength; i++) {
+            registrations[i].unregister();
         }
-    });
-    navigator.serviceWorker.register('sw.js');
+    }).then(navigator.serviceWorker.register('sw.js'));
+
 }
 
 
