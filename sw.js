@@ -39,6 +39,10 @@ self.addEventListener('install', e => {
     const cacheInmutable = caches.open( INMUTABLE_CACHE ).then(cache => 
         cache.addAll( APP_SHELL_INMUTABLE ));
     e.waitUntil( Promise.all([ cacheStatic, cacheInmutable ])  );
+
+    // Forzamos la activacion del serviceworker
+    // self.skipWaiting();
+
 });
 
 
