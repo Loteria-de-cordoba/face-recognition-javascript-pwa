@@ -71,7 +71,7 @@ self.addEventListener( 'fetch', e => {
         } else {
             return fetch( e.request ).then( newRes => {
                 return actualizaCacheDinamico( DYNAMIC_CACHE, e.request, newRes );
-            }).catch(error => console.log(error));
+            }).catch(console.log);
         }
     });
     e.respondWith( respuesta );
