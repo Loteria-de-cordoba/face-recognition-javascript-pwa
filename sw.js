@@ -22,7 +22,7 @@ function limpiarCache(cacheName, numeroItems)   {
 }
 
 const APP_SHELL = [
-    '/',
+    // '/',
     'index.html',
     'backoffice.html',
     'assets/apple-touch-icon.png',
