@@ -34,8 +34,10 @@ const APP_SHELL = [
     'assets/favicon-16x16.png',
     'assets/logo-loteria.jpg',
     'app.js',
+    'js/app.js',
     'js/sw-utils.js',
-    'backoffice.js'
+    'backoffice.js',
+    'favicon.ico'
 ];
 
 const APP_SHELL_INMUTABLE = [
