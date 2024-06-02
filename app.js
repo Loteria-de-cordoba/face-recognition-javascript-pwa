@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
 
   console.log('Documento cargado...');
   
@@ -283,4 +283,4 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * END send_push_notification
    */
-});
+// });
