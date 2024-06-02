@@ -11,7 +11,7 @@ function afterDOMLoaded(){
 
 // document.addEventListener('DOMContentLoaded', () => {
 
-  console.log('Documento cargado...');
+  console.log('Documento cargado....');
   
   const applicationServerKey =
     'BNcx2d1PC2OopvBaLgj7Q6CurmEU-R98nE_B6PQmDJ6f6kgn8JfQX45knve7ExUXz_BnlCzU9BMQ9E_Gf-X1tbs';
