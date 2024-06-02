@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       push_subscribe();
     }
   });
-
+  
   if (!('serviceWorker' in navigator)) {
     console.warn('Service workers are not supported by this browser');
     changePushButtonState('incompatible');
