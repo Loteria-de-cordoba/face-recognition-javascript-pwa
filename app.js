@@ -56,17 +56,17 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  navigator.serviceWorker.register('sw.js').then(
-    // navigator.serviceWorker.register('serviceWorker.js').then(
-    () => {
-      console.log('[SW] Service worker has been registered');
-      push_updateSubscription();
-    },
-    e => {
-      console.error('[SW] Service worker registration failed', e);
-      changePushButtonState('incompatible');
-    }
-  );
+  // navigator.serviceWorker.register('sw.js').then(
+  //   // navigator.serviceWorker.register('serviceWorker.js').then(
+  //   () => {
+  //     console.log('[SW] Service worker has been registered');
+  //     push_updateSubscription();
+  //   },
+  //   e => {
+  //     console.error('[SW] Service worker registration failed', e);
+  //     changePushButtonState('incompatible');
+  //   }
+  // );
 
   function changePushButtonState(state) {
     switch (state) {
