@@ -1,6 +1,6 @@
-function afterDOMLoaded() {
+// function afterDOMLoaded() {
 
-  // document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
   console.log('Documento cargado...');
 
@@ -285,5 +285,5 @@ function afterDOMLoaded() {
   /**
    * END send_push_notification
    */
-  // });
-}
+});
+// }
