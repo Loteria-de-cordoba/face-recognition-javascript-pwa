@@ -1,6 +1,6 @@
 // imports
 
-console.log('Hola Mundo!!!...');
+console.log('Hola Mundo!!!.....');
 importScripts('js/sw-utils.js');
 
 
