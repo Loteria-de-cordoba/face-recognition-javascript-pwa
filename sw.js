@@ -34,6 +34,7 @@ const APP_SHELL = [
     'assets/logo-loteria.jpg',
     'assets/favicon.ico',
     'app.js',
+    'app-index.js',
     'js/app.js',
     'js/sw-utils.js',
     'backoffice.js'   

@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // push_subscribe();
+ //  push_subscribe();
 
   // window.addEventListener('load', function () {
   //   console.log('Documento cargado!...');
