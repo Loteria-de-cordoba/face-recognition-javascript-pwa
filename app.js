@@ -1,17 +1,6 @@
-// if(document.readyState === 'loading') {
-//     document.addEventListener('DOMContentLoaded',afterDOMLoaded);
-// } else {
-//     afterDOMLoaded();
-// }
+document.addEventListener('DOMContentLoaded', () => {
 
-function afterDOMLoaded(){
-    //Everything that needs to happen after the DOM has initially loaded.
-// }
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-
-  console.log('Documento cargado....');
+  console.log('Documento cargado...');
   
   const applicationServerKey =
     'BNcx2d1PC2OopvBaLgj7Q6CurmEU-R98nE_B6PQmDJ6f6kgn8JfQX45knve7ExUXz_BnlCzU9BMQ9E_Gf-X1tbs';
@@ -67,17 +56,17 @@ function afterDOMLoaded(){
     return;
   }
 
-  navigator.serviceWorker.register('/sw.js').then(
-    // navigator.serviceWorker.register('serviceWorker.js').then(
-    () => {
-      console.log('[SW] Service worker has been registered');
-      push_updateSubscription();
-    },
-    e => {
-      console.error('[SW] Service worker registration failed', e);
-      changePushButtonState('incompatible');
-    }
-  );
+  // navigator.serviceWorker.register('sw.js').then(
+  //   // navigator.serviceWorker.register('serviceWorker.js').then(
+  //   () => {
+  //     console.log('[SW] Service worker has been registered');
+  //     push_updateSubscription();
+  //   },
+  //   e => {
+  //     console.error('[SW] Service worker registration failed', e);
+  //     changePushButtonState('incompatible');
+  //   }
+  // );
 
   function changePushButtonState(state) {
     switch (state) {
@@ -294,5 +283,4 @@ function afterDOMLoaded(){
   /**
    * END send_push_notification
    */
-}
-//);
+});
