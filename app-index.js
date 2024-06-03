@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // navigator.serviceWorker.register('serviceWorker.js').then(
     () => {
       console.log('[SW] Service worker has been registered');
-      push_updateSubscription();
+      // push_updateSubscription();
     },
     e => {
       console.error('[SW] Service worker registration failed', e);
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // push_subscribe();
+  push_subscribe();
 
   // window.addEventListener('load', function () {
   //   console.log('Documento cargado!...');
