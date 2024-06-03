@@ -1,7 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
+function afterDOMLoaded() {
+
+  // document.addEventListener('DOMContentLoaded', () => {
 
   console.log('Documento cargado...');
-  
+
   const applicationServerKey =
     'BNcx2d1PC2OopvBaLgj7Q6CurmEU-R98nE_B6PQmDJ6f6kgn8JfQX45knve7ExUXz_BnlCzU9BMQ9E_Gf-X1tbs';
   let isPushEnabled = false;
@@ -29,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       push_subscribe();
     }
   });
-  
+
   if (!('serviceWorker' in navigator)) {
     console.warn('Service workers are not supported by this browser');
     changePushButtonState('incompatible');
@@ -74,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pushButton.disabled = false;
         pushButton.textContent = 'Disable Push notifications';
         isPushEnabled = true;
-        $('#push-subscription-button').removeClass('btn-warning').addClass('btn-primary');        
+        $('#push-subscription-button').removeClass('btn-warning').addClass('btn-primary');
         break;
       case 'disabled':
         pushButton.disabled = false;
@@ -283,4 +285,5 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * END send_push_notification
    */
-});
+  // });
+}
