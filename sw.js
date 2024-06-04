@@ -29,15 +29,15 @@ function limpiarCache(cacheName, numeroItems)   {
 
 const APP_SHELL = [
     '/',
-    '/face-recognition-javascript-pwa/index.html',
-    '/face-recognition-javascript-pwa/assets/logo-loteria.jpg',
-    '/face-recognition-javascript-pwa/assets/favicon.ico',
-    '/face-recognition-javascript-pwa/app.js',
-    '/face-recognition-javascript-pwa/app-index.js',
-    '/face-recognition-javascript-pwa/js/app.js',
-    '/face-recognition-javascript-pwa/js/sw-utils.js',
-    '/face-recognition-javascript-pwa/backoffice.html',
-    '/face-recognition-javascript-pwa/backoffice.js'   
+    '/index.html',
+    '/assets/logo-loteria.jpg',
+    '/assets/favicon.ico',
+    '/app.js',
+    '/app-index.js',
+    '/js/app.js',
+    '/js/sw-utils.js',
+    '/backoffice.html',
+    '/backoffice.js'   
 ];
 
 const APP_SHELL_INMUTABLE = [
