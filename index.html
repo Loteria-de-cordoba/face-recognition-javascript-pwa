@@ -126,18 +126,18 @@
 
 <script>
 
-    navigator.serviceWorker.register('sw.js').then(
-        // navigator.serviceWorker.register('serviceWorker.js').then(
-        () => {
-            console.log('[SW] Service worker has been registered');
-            // afterDOMLoaded();
-            // push_updateSubscription();
-        },
-        e => {
-            console.error('[SW] Service worker registration failed', e);
-            changePushButtonState('incompatible');
-        }
-    );
+    // navigator.serviceWorker.register('sw.js').then(
+    //     // navigator.serviceWorker.register('serviceWorker.js').then(
+    //     () => {
+    //         console.log('[SW] Service worker has been registered');
+    //         // afterDOMLoaded();
+    //         // push_updateSubscription();
+    //     },
+    //     e => {
+    //         console.error('[SW] Service worker registration failed', e);
+    //         changePushButtonState('incompatible');
+    //     }
+    // );
 
     // Función para obtener el parámetro 'id' de la URL
     function getParameterByName(name, url) {
