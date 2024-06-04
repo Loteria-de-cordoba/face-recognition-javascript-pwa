@@ -28,15 +28,15 @@ function limpiarCache(cacheName, numeroItems)   {
 }
 
 const APP_SHELL = [
-    // '/',
+    '/',
     'index.html',
     'backoffice.html',
-    'assets/logo-loteria.jpg',
-    'assets/favicon.ico',
+    '/assets/logo-loteria.jpg',
+    '/assets/favicon.ico',
     'app.js',
     'app-index.js',
-    'js/app.js',
-    'js/sw-utils.js',
+    '/js/app.js',
+    '/js/sw-utils.js',
     'backoffice.js'   
 ];
 
