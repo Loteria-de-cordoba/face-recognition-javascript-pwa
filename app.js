@@ -2,7 +2,16 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  navigator.serviceWorker.register('sw.js').then(
+  var url = window.location.href;
+  var swLocation = '/face-recognition-javascript-pwa/sw.js';
+
+  if (url.includes('localhost')) {
+
+    swLocation = '/sw.js';
+
+  }
+
+  navigator.serviceWorker.register(swLocation).then(
     // navigator.serviceWorker.register('serviceWorker.js').then(
     () => {
       console.log('[SW] Service worker has been registered');
