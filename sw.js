@@ -54,9 +54,11 @@ const APP_SHELL_INMUTABLE = [
 
 self.addEventListener('install', e => {
     const cacheStatic = caches.open( STATIC_CACHE ).then(cache => 
-        cache.addAll( APP_SHELL ));
+        cache.addAll( APP_SHELL ))
+        .catch(error => (console.log(error)));
     const cacheInmutable = caches.open( INMUTABLE_CACHE ).then(cache => 
-        cache.addAll( APP_SHELL_INMUTABLE ));
+        cache.addAll( APP_SHELL_INMUTABLE ))
+        .catch(error => (console.log(error)));
     e.waitUntil( Promise.all([ cacheStatic, cacheInmutable ])  );
 
     // Forzamos la activacion del serviceworker
