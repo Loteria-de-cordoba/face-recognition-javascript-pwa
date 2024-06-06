@@ -47,7 +47,8 @@ const APP_SHELL_INMUTABLE = [
     'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js',
     pathLocation + '/sweetalert2@11/sweetalert2@11.js',
     pathLocation + '/librerias/twbs-pagination-master/jquery.twbsPagination.min.js',
-    pathLocation + '/librerias/fontawesome-free-6.4.2-web/css/all.css'
+    pathLocation + '/librerias/fontawesome-free-6.4.2-web/css/all.css',
+    `https://${server}/backend/api/usuarios/index.php`
 ];
 
 
