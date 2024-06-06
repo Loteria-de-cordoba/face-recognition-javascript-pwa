@@ -216,6 +216,7 @@
         $('#spinner').show();
 
         headers = {
+            'Content-Type': 'application/json',
             accion: 'login'
         };
 
@@ -234,42 +235,69 @@
 
         }
 
-        $.ajax({
-            type: "POST",
-            // url: 'http://localhost/face-recognition-javascript/backend/api/usuarios/',
-            // url: 'https://localhost/control-ingreso-salas/index.php',            
-            url: `https://${server}/backend/api/usuarios/index.php`,
-            data: JSON.stringify(variables),
-            headers: headers,
-            // dataType: 'json',
-            // xhrFields: {
-            //     withCredentials: false
-            // }
-            // // Esto configura la opción rejectUnauthorized para manejar certificados SSL inválidos
-            // // Solo necesario en entornos Node.js
-            // beforeSend: function (xhr) {
-            //     xhr.setRequestHeader('rejectUnauthorized', 'false');
-            // }
-        }).done(function (data) {
-            // alert("Data Loaded: " + data);
-            console.log(data);
-            //var obj = jQuery.parseJSON(data);
-            if (data.ok) {
-                localStorage.setItem('CI-token', data.token);
-                window.location.href = destino;
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                    footer: '<a href="">Why do I have this issue?</a>'
-                })
-            }
-        }).fail(function () {
-            alert("Error, no se pudo realizar la consulta!...");
-        }).always(function () {
-            // alert("finished");
-        });
+
+
+        fetch(`https://${server}/backend/api/usuarios/index.php`, {
+            method: 'POST',
+            body: JSON.stringify(variables),
+            headers: headers
+        })
+            .then(resp => resp.json())
+            .then(data => {
+                if (data.ok) {
+                    localStorage.setItem('CI-token', data.token);
+                    window.location.href = destino;
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                        footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                }
+            })
+            .catch(error => {
+                console.log('Error en la peticion');
+                console.log(error);
+            });
+
+
+        // $.ajax({
+        //     type: "POST",
+        //     // url: 'http://localhost/face-recognition-javascript/backend/api/usuarios/',
+        //     // url: 'https://localhost/control-ingreso-salas/index.php',            
+        //     url: `https://${server}/backend/api/usuarios/index.php`,
+        //     data: JSON.stringify(variables),
+        //     headers: headers,
+        //     // dataType: 'json',
+        //     // xhrFields: {
+        //     //     withCredentials: false
+        //     // }
+        //     // // Esto configura la opción rejectUnauthorized para manejar certificados SSL inválidos
+        //     // // Solo necesario en entornos Node.js
+        //     // beforeSend: function (xhr) {
+        //     //     xhr.setRequestHeader('rejectUnauthorized', 'false');
+        //     // }
+        // }).done(function (data) {
+        //     // alert("Data Loaded: " + data);
+        //     console.log(data);
+        //     //var obj = jQuery.parseJSON(data);
+        //     if (data.ok) {
+        //         localStorage.setItem('CI-token', data.token);
+        //         window.location.href = destino;
+        //     } else {
+        //         Swal.fire({
+        //             icon: 'error',
+        //             title: 'Oops...',
+        //             text: 'Something went wrong!',
+        //             footer: '<a href="">Why do I have this issue?</a>'
+        //         })
+        //     }
+        // }).fail(function () {
+        //     alert("Error, no se pudo realizar la consulta!...");
+        // }).always(function () {
+        //     // alert("finished");
+        // });
 
     }
 </script>
