@@ -4,10 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   var url = window.location.href;
   var swLocation = '/face-recognition-javascript-pwa/sw.js';
+  var pathLocation = '/face-recognition-javascript-pwa';
 
   if (url.includes('localhost')) {
 
     swLocation = '/sw.js';
+    pathLocation = '';
 
   }
 
