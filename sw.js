@@ -93,7 +93,7 @@ self.addEventListener('fetch', e => {
             }).catch(console.log);
         }
     });
-    e.respondWith(async () => { await respuesta });
+    e.respondWith(respuesta);
 });
 
 self.addEventListener('push', function (event) {
