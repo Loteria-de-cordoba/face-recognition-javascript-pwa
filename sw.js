@@ -3,18 +3,6 @@
 console.log('Hola Mundo!!!.....');
 importScripts('js/sw-utils.js');
 
-var url = window.location.href;
-var swLocation = '/face-recognition-javascript-pwa/sw.js';
-var pathLocation = '/face-recognition-javascript-pwa';
-
-if (url.includes('localhost')) {
-
-    swLocation = '/sw.js';
-    pathLocation = '';
-
-}
-
-
 // 2 - Cache with Network Fallback
 
 const STATIC_CACHE = 'static-v1';
@@ -40,26 +28,25 @@ function limpiarCache(cacheName, numeroItems) {
 
 const APP_SHELL = [
     // '/',
-    pathLocation + '/index.html',
-    pathLocation + '/assets/logo-loteria.jpg',
-    pathLocation + '/assets/favicon.ico',
-    pathLocation + '/app.js',
-    pathLocation + '/app-index.js',
-    pathLocation + '/js/app.js',
-    pathLocation + '/js/sw-utils.js',
-    pathLocation + '/backoffice.html',
-    pathLocation + '/backoffice.js'
+    '/index.html',
+    '/assets/logo-loteria.jpg',
+    '/assets/favicon.ico',
+    '/app.js',
+    '/app-index.js',
+    '/js/app.js',
+    '/js/sw-utils.js',
+    '/backoffice.html',
+    '/backoffice.js'
 ];
 
 const APP_SHELL_INMUTABLE = [
-    pathLocation + '/jquery-3.7.1/jquery-3.7.1.min.js',
+    '/jquery-3.7.1/jquery-3.7.1.min.js',
     'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css',
     'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js',
     'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js',
-    pathLocation + '/sweetalert2@11/sweetalert2@11.js',
-    pathLocation + '/librerias/twbs-pagination-master/jquery.twbsPagination.min.js',
-    pathLocation + '/librerias/fontawesome-free-6.4.2-web/css/all.css',
-    `https://${server}/backend/api/usuarios/index.php`
+    '/sweetalert2@11/sweetalert2@11.js',
+    '/librerias/twbs-pagination-master/jquery.twbsPagination.min.js',
+    '/librerias/fontawesome-free-6.4.2-web/css/all.css'
 ];
 
 
