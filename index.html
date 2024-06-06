@@ -244,6 +244,7 @@
         })
             .then(resp => resp.json())
             .then(data => {
+                console.log(data);
                 if (data.ok) {
                     localStorage.setItem('CI-token', data.token);
                     window.location.href = destino;
