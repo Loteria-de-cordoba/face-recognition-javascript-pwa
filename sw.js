@@ -28,7 +28,7 @@ function limpiarCache(cacheName, numeroItems)   {
 }
 
 const APP_SHELL = [
-    '/',
+    // '/',
     '/index.html',
     'assets/logo-loteria.jpg',
     'assets/favicon.ico',
