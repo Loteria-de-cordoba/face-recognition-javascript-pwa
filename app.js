@@ -2,26 +2,26 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  var url = window.location.href;
-  var swLocation = '/face-recognition-javascript-pwa/sw.js';
+  // var url = window.location.href;
+  // var swLocation = '/face-recognition-javascript-pwa/sw.js';
   
-  if (url.includes('localhost')) {
+  // if (url.includes('localhost')) {
 
-    swLocation = '/sw.js';
+  //   swLocation = '/sw.js';
   
-  }
+  // }
 
-  navigator.serviceWorker.register(swLocation).then(
-    // navigator.serviceWorker.register('serviceWorker.js').then(
-    () => {
-      console.log('[SW] Service worker has been registered');
-      push_updateSubscription();
-    },
-    e => {
-      console.error('[SW] Service worker registration failed', e);
-      changePushButtonState('incompatible');
-    }
-  );
+  // navigator.serviceWorker.register(swLocation).then(
+  //   // navigator.serviceWorker.register('serviceWorker.js').then(
+  //   () => {
+  //     console.log('[SW] Service worker has been registered');
+  //     push_updateSubscription();
+  //   },
+  //   e => {
+  //     console.error('[SW] Service worker registration failed', e);
+  //     changePushButtonState('incompatible');
+  //   }
+  // );
 
 
   console.log('Documento cargado...');
