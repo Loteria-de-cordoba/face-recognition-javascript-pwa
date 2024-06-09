@@ -28,14 +28,14 @@ function limpiarCache(cacheName, numeroItems) {
 
 const APP_SHELL = [
     // '/',
-    '/face-recognition-javascript-pwa/index.html',
+    '/face-recognition-javascript-pwa/index.htmll?server=192.168.100.216',
     '/face-recognition-javascript-pwa/assets/logo-loteria.jpg',
     '/face-recognition-javascript-pwa/assets/favicon.ico',
     '/face-recognition-javascript-pwa/app.js',
     '/face-recognition-javascript-pwa/app-index.js',
     '/face-recognition-javascript-pwa/js/app.js',
     '/face-recognition-javascript-pwa/js/sw-utils.js',
-    '/face-recognition-javascript-pwa/backoffice.html',
+    '/face-recognition-javascript-pwa/backoffice.htmll?server=192.168.100.216',
     '/face-recognition-javascript-pwa/backoffice.js'
 ];
 
