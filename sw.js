@@ -112,9 +112,11 @@ self.addEventListener('fetch', function (event) {
             console.error('Fetch failed:', error);
             throw error; // Asegúrate de lanzar el error para que respondWith() reciba una promesa rechazada
         }
-    }).then(newRes => {
-        return actualizaCacheDinamico(DYNAMIC_CACHE, event.request, newRes)
-    }));
+    })
+    // .then(newRes => {
+    //     return actualizaCacheDinamico(DYNAMIC_CACHE, event.request, newRes)
+    // })
+    ());
 });
 
 //   self.addEventListener('fetch', event => {
