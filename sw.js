@@ -114,7 +114,7 @@ self.addEventListener('fetch', function (event) {
         }
     }).then(newRes => {
         return actualizaCacheDinamico(DYNAMIC_CACHE, event.request, newRes)
-    })());
+    }));
 });
 
 //   self.addEventListener('fetch', event => {
