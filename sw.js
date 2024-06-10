@@ -96,24 +96,24 @@ self.addEventListener('activate', e => {
 //     e.respondWith(respuesta);
 // });
 
-self.addEventListener('fetch', function (event) {
-    event.respondWith((async () => {
-        try {
-            // Intenta obtener la respuesta de la caché
-            const cachedResponse = await caches.match(event.request);
-            if (cachedResponse) {
-                return cachedResponse;
-            }
-            // Si no está en caché, realiza una solicitud de red
-            const networkResponse = await fetch(event.request);
-            // actualizaCacheDinamico(DYNAMIC_CACHE, event.request, networkResponse);
-            return networkResponse;
-        } catch (error) {
-            console.error('Fetch failed:', error);
-            throw error; // Asegúrate de lanzar el error para que respondWith() reciba una promesa rechazada
-        }
-    })());
-});
+// self.addEventListener('fetch', function (event) {
+//     event.respondWith((async () => {
+//         try {
+//             // Intenta obtener la respuesta de la caché
+//             const cachedResponse = await caches.match(event.request);
+//             if (cachedResponse) {
+//                 return cachedResponse;
+//             }
+//             // Si no está en caché, realiza una solicitud de red
+//             const networkResponse = await fetch(event.request);
+//             // actualizaCacheDinamico(DYNAMIC_CACHE, event.request, networkResponse);
+//             return networkResponse;
+//         } catch (error) {
+//             console.error('Fetch failed:', error);
+//             throw error; // Asegúrate de lanzar el error para que respondWith() reciba una promesa rechazada
+//         }
+//     })());
+// });
 
 
     // .then(newRes => {
