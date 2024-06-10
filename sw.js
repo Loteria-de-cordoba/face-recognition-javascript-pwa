@@ -108,9 +108,14 @@ self.addEventListener('fetch', function (event) {
             // Si no está en caché, realiza una solicitud de red
             const networkResponse = await fetch(event.request);
 
-            // Actualiza la caché dinámica y maneja la respuesta
-            const updatedResponse = await actualizaCacheDinamico2(DYNAMIC_CACHE, event.request, networkResponse);
-            return updatedResponse;
+            // Solo actualizar la caché si la solicitud es GET
+            if (event.request.method === 'GET') {
+                const updatedResponse = await actualizaCacheDinamico2(DYNAMIC_CACHE, event.request, networkResponse);
+                return updatedResponse;
+            }
+
+            // Si la solicitud no es GET, devolver la respuesta de la red sin almacenar en caché
+            return networkResponse;
         } catch (error) {
             console.error('Fetch failed:', error);
 
