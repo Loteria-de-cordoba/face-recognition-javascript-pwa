@@ -83,18 +83,61 @@ self.addEventListener('activate', e => {
 });
 
 
-self.addEventListener('fetch', e => {
-    const respuesta = caches.match(e.request).then(res => {
-        if (res) {
-            return res;
-        } else {
-            return fetch(e.request).then(newRes => {
-                return actualizaCacheDinamico(DYNAMIC_CACHE, e.request, newRes);
-            }).catch(console.log);
+// self.addEventListener('fetch', e => {
+//     const respuesta = caches.match(e.request).then(res => {
+//         if (res) {
+//             return res;
+//         } else {
+//             return fetch(e.request).then(newRes => {
+//                 return actualizaCacheDinamico(DYNAMIC_CACHE, e.request, newRes);
+//             }).catch(console.log);
+//         }
+//     });
+//     e.respondWith(respuesta);
+// });
+
+self.addEventListener('fetch', function(event) {
+    event.respondWith((async () => {
+      try {
+        // Intenta obtener la respuesta de la caché
+        const cachedResponse = await caches.match(event.request);
+        if (cachedResponse) {
+          return cachedResponse;
         }
-    });
-    e.respondWith(respuesta);
-});
+        // Si no está en caché, realiza una solicitud de red
+        const networkResponse = await fetch(event.request);
+        actualizaCacheDinamico(DYNAMIC_CACHE, event.request, networkResponse);
+        return networkResponse;
+      } catch (error) {
+        console.error('Fetch failed:', error);
+        throw error; // Asegúrate de lanzar el error para que respondWith() reciba una promesa rechazada
+      }
+    })());
+  });
+
+//   self.addEventListener('fetch', event => {
+//     event.respondWith(
+//       (async () => {
+//         try {
+//           // Intenta obtener la respuesta de la red primero
+//           const networkResponse = await fetch(event.request);
+//           return networkResponse;
+//         } catch (error) {
+//           // Si falla la red, intenta obtener la respuesta de la caché
+//           const cacheResponse = await caches.match(event.request);
+//           if (cacheResponse) {
+//             return cacheResponse;
+//           }
+//           // Si no hay respuesta en la caché, muestra un mensaje de error o una página de fallback
+//           return new Response('No se pudo cargar la página', {
+//             status: 503,
+//             statusText: 'Service Unavailable',
+//             headers: new Headers({ 'Content-Type': 'text/html' }),
+//           });
+//         }
+//       })()
+//     );
+//   });
 
 self.addEventListener('push', function (event) {
     if (!(self.Notification && self.Notification.permission === 'granted')) {
