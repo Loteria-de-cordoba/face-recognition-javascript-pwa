@@ -108,7 +108,7 @@ self.addEventListener('fetch', function (event) {
             const networkResponse = await fetch(event.request).then(newRes => {
                 return actualizaCacheDinamico(DYNAMIC_CACHE, event.request, newRes)
             })
-            // return networkResponse;
+            return networkResponse;
         } catch (error) {
             console.error('Fetch failed:', error);
             throw error; // Asegúrate de lanzar el error para que respondWith() reciba una promesa rechazada
