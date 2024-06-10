@@ -109,7 +109,7 @@ self.addEventListener('fetch', function (event) {
             const networkResponse = await fetch(event.request);
 
             // Actualiza la caché dinámica
-            const updatedResponse = await actualizaCacheDinamico('DYNAMIC_CACHE', event.request, networkResponse);
+            const updatedResponse = await actualizaCacheDinamico(DYNAMIC_CACHE, event.request, networkResponse);
             
             return updatedResponse;
         } catch (error) {
