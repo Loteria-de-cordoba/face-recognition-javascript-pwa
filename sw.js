@@ -96,62 +96,7 @@ self.addEventListener('activate', e => {
 //     e.respondWith(respuesta);
 // });
 
-self.addEventListener('fetch', function (event) {
-    event.respondWith((async () => {
-        try {
-            // Intenta obtener la respuesta de la caché
-            const cachedResponse = await caches.match(event.request);
-            if (cachedResponse) {
-                return cachedResponse;
-            }
 
-            // Si no está en caché, realiza una solicitud de red
-            const networkResponse = await fetch(event.request);
-
-            // Solo actualizar la caché si la solicitud es GET
-            if (event.request.method === 'GET') {
-                const updatedResponse = await actualizaCacheDinamico2(DYNAMIC_CACHE, event.request, networkResponse);
-                return updatedResponse;
-            }
-
-            // Si la solicitud no es GET, devolver la respuesta de la red sin almacenar en caché
-            return networkResponse;
-        } catch (error) {
-            console.error('Fetch failed:', error);
-
-            // Devuelve una respuesta personalizada si falla todo lo demás (opcional)
-            const fallbackResponse = await caches.match('/pages/offline.html');
-            if (fallbackResponse) {
-                return fallbackResponse;
-            }
-
-            return new Response('Something went wrong.', {
-                status: 500,
-                statusText: 'Internal Server Error'
-            });
-        }
-    })());
-});
-
-async function actualizaCacheDinamico2(dynamicCache, req, res) {
-    if (res.ok) {
-        try {
-            const cache = await caches.open(dynamicCache);
-            await cache.put(req, res.clone());
-            // limpiarCache(dynamicCache, 5);
-            return res.clone();
-        } catch (error) {
-            console.error('Cache update failed:', error);
-            if (req.headers.get('accept').includes('text/html')) {
-                const offlineResponse = await caches.match('/pages/offline.html');
-                if (offlineResponse) {
-                    return offlineResponse;
-                }
-            }
-        }
-    }
-    return res;  // Asegúrate de que se devuelve la respuesta original si no se puede almacenar en caché
-}
 
 
 // self.addEventListener('fetch', function (event) {
