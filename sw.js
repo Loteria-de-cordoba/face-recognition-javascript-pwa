@@ -105,14 +105,15 @@ self.addEventListener('fetch', function (event) {
                 return cachedResponse;
             }
             // Si no está en caché, realiza una solicitud de red
-            const networkResponse = await fetch(event.request).then(newRes => {
-                return actualizaCacheDinamico(DYNAMIC_CACHE, event.request, newRes)
-            })
+            const networkResponse = await fetch(event.request);
+            // actualizaCacheDinamico(DYNAMIC_CACHE, event.request, networkResponse);
             return networkResponse;
         } catch (error) {
             console.error('Fetch failed:', error);
             throw error; // Asegúrate de lanzar el error para que respondWith() reciba una promesa rechazada
         }
+    }).then(newRes => {
+        return actualizaCacheDinamico(DYNAMIC_CACHE, event.request, newRes)
     })());
 });
 
