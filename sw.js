@@ -96,48 +96,7 @@ self.addEventListener('activate', e => {
 //     e.respondWith(respuesta);
 // });
 
-self.addEventListener('fetch', function (event) {
-    event.respondWith((async () => {
-        try {
-            // Intenta obtener la respuesta de la caché
-            const cachedResponse = await caches.match(event.request);
-            if (cachedResponse) {
-                return cachedResponse;
-            }
-            
-            // Si no está en caché, realiza una solicitud de red
-            const networkResponse = await fetch(event.request);
-            
-            // Actualiza la caché dinámica
-            const updatedResponse = await actualizaCacheDinamico(DYNAMIC_CACHE, event.request, networkResponse);
-            
-            return updatedResponse;
-        } catch (error) {
-            console.error('Fetch failed:', error);
-            console.error('Fetch failed:', error, event.request.url);
-            // Devuelve una respuesta personalizada si falla todo lo demás (opcional)
-            return caches.match('/pages/offline.html');
-        }
-    })());
-});
-
-async function actualizaCacheDinamico(dynamicCache, req, res) {
-    if (res.ok) {
-        try {
-            const cache = await caches.open(dynamicCache);
-            await cache.put(req, res.clone());
-            // limpiarCache(dynamicCache, 5);
-            return res.clone();
-        } catch (error) {
-            console.error('Cache update failed:', error);
-            if (req.headers.get('accept').includes('text/html')) {
-                return caches.match('/pages/offline.html');
-            }
-        }
-    } else {
-        return res;
-    }
-}
+// 
 
 
 // self.addEventListener('fetch', function (event) {
